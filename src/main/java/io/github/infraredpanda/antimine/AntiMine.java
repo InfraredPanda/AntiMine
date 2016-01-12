@@ -1,16 +1,21 @@
 package io.github.infraredpanda.antimine;
 
+import java.util.Set;
+
 import org.slf4j.Logger;
 import org.spongepowered.api.Game;
 import org.spongepowered.api.Sponge;
+import org.spongepowered.api.block.BlockTypes;
 import org.spongepowered.api.command.spec.CommandSpec;
 import org.spongepowered.api.event.Listener;
 import org.spongepowered.api.event.game.state.GameInitializationEvent;
 import org.spongepowered.api.event.game.state.GamePostInitializationEvent;
 import org.spongepowered.api.event.game.state.GamePreInitializationEvent;
+import org.spongepowered.api.item.ItemTypes;
 import org.spongepowered.api.plugin.Plugin;
 import org.spongepowered.api.text.Text;
 
+import com.google.common.collect.Sets;
 import com.google.inject.Inject;
 
 import io.github.infraredpanda.antimine.commands.AntiMineExecutor;
@@ -18,6 +23,8 @@ import io.github.infraredpanda.antimine.commands.AntiMineExecutor;
 @Plugin(id = "AntiMine", name = "AntiMine", version = "0.1")
 public class AntiMine
 {
+	public static Set<ItemTypes> blockedItemTypes = Sets.newHashSet();
+	public static Set<BlockTypes> blockedBlockTypes = Sets.newHashSet();
 	public static Game game;
 	
 	@Inject
@@ -51,6 +58,6 @@ public class AntiMine
 	@Listener
 	public void onServerPostInit(GamePostInitializationEvent event)
 	{
-		getLogger().info("FindTheCenter loaded!");
+		getLogger().info("AntiMine loaded!");
 	}
 }

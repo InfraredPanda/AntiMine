@@ -16,7 +16,7 @@ public class AntiMineExecutor implements CommandExecutor
 		if (src instanceof Player)
 		{
 			Player player = (Player) src;
-
+			
 		}
 		else if(src instanceof CommandSource)
 		{
